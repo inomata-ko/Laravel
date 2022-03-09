@@ -1,0 +1,14 @@
+@startuml シーケンス図
+actor "ユーザ" as u
+boundary "ブラウザ" as b
+control "web.php" as wp
+control "Jissyu3_3Controller" as jc
+boundary "jissyu3_3.index.blade.php" as jibp
+boundary "layouts.jissyu.blade.php" as ljbp
+u -> b :該当ページをリクエスト[/jissyu5]
+b -> wp :GET[/jissyu5]
+wp -> jc :@index
+jc -> jibp
+jibp -> ljbp :@extends
+jibp <-- ljbp
+@enduml

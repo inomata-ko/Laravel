@@ -11,11 +11,14 @@
 |
 */
 
+use App\Http\Middleware\HelloMiddleware;
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('hello','HelloController@index');
+Route::get('hello','HelloController@index')
+->middleware('hello');
 Route::post('hello','HelloController@post');
 
 //演習問題
@@ -27,4 +30,5 @@ Route::post('jissyu3', 'Jissyu3_1Controller@post');
 //3-2
 Route::get('jissyu4', 'Jissyu3_2Controller@index');
 Route::post('jissyu4', 'Jissyu3_2Controller@post');
-
+//3-3
+Route::get('jissyu5', 'Jissyu3_3Controller@index');
