@@ -1,0 +1,20 @@
+@startuml シーケンス図
+actor "ユーザ" as u
+boundary "ブラウザ" as b
+control "web.php" as wp
+control "Jissyu4_1Controller" as jc
+boundary "input.blade.php" as ibp
+boundary "output.blade.php" as obp
+u -> b :該当ページをリクエスト[/jissyu6]
+b -> wp :GET[/jissyu6]
+wp -> jc :@index
+jc -> ibp
+u -> ibp :送信ボタンを押下
+wp <- ibp :POST
+wp -> jc :@post
+alt 成功
+jc ->obp
+else エラー発生
+jc ->ibp :
+end
+@enduml
