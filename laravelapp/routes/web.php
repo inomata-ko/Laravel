@@ -29,6 +29,8 @@ Route::post('hello/edit','HelloController@update');
 Route::get('hello/del','HelloController@del');
 Route::post('hello/del','HelloController@remove');
 
+Route::get('hello/show','HelloController@show');
+
 
 //演習問題
 //2-1
@@ -47,6 +49,10 @@ Route::post('jissyu6', 'Jissyu4_1Controller@post');
 //4-2
 Route::get('jissyu7', 'Jissyu4_2Controller@index');
 Route::post('jissyu7', 'Jissyu4_2Controller@post');
+//5-1
+Route::get('___(1)___', '___(2)___');
+Route::get('___(3)___', '___(4)___');
+
 //kouka1-1
 Route::get('kouka1_1', 'Kouka1_1Controller@index');
 //kouka1-2

@@ -1,0 +1,16 @@
+@startuml シーケンス図
+actor "ユーザ" as u
+boundary "ブラウザ" as b
+control "web.php" as wp
+control "Jissyu5_1Controller" as jc
+boundary "index.blade.php" as ibp
+boundary "show.blade.php" as sbp
+u -> b :該当ページをリクエスト[/jissyu10]
+b -> wp :GET[/jissyu10]
+wp -> jc :@index
+jc -> ibp
+u -> ibp :選択ボタンを押下
+wp <- ibp :GET[/jissyu10/show]
+wp -> jc :@show
+jc ->sbp
+@enduml
