@@ -3,20 +3,16 @@
 @section('title', 'Jissyu')
 
 @section('menu_title')
-ユーザ情報一覧画面
-@endsection
+ユーザ情報詳細画面
 
+@endsection
 @section('content')
    <table>
-   <tr><th>Name</th><th>Mail</th><th>Age</th><th>Select</th></tr>
-   @foreach ($items as $item)
+   <tr><th>Name(Age)</th><th>Mail</th></tr>
        <tr>
-           <td>{{$item->name}}</td>
+           <td>___(12)___</td>
            <td>{{$item->mail}}</td>
-           <td>{{$item->age}}</td>
-           <td><a href="/jissyu10/show?id={{$item->id}}">詳細</a></td>
        </tr>
-   @endforeach
    </table>
 @endsection
 

@@ -7,14 +7,17 @@
 @endsection
 
 @section('content')
+    <form action="___(10)___" method="post">
+    @csrf
+    <input type="text" name="input" value="{{$input}}">
+    <input type="submit" value="検索">
+    </form>
    <table>
-   <tr><th>Name</th><th>Mail</th><th>Age</th><th>Select</th></tr>
-   @foreach ($items as $item)
+   <tr><th>Name(Age)</th><th>Mail</th></tr>
+   @foreach (___(11)___)
        <tr>
-           <td>{{$item->name}}</td>
+           <td>{{$item->getData()}}</td>
            <td>{{$item->mail}}</td>
-           <td>{{$item->age}}</td>
-           <td><a href="/jissyu10/show?id={{$item->id}}">詳細</a></td>
        </tr>
    @endforeach
    </table>
