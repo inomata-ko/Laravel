@@ -22,6 +22,11 @@ class Person extends Model
 
     }
 
+    public function boards(){
+        return $this->hasMany('App\Board');
+
+    }
+
     // public function scopeNameEqual($query, $str){
     //     return $query->where('name',$str);
     // }

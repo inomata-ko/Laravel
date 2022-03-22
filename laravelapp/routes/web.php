@@ -45,6 +45,11 @@ Route::post('person/edit','PersonController@update');
 Route::get('person/del','PersonController@delete');
 Route::post('person/del','PersonController@remove');
 
+Route::get('board','BoardController@index');
+
+Route::get('board/add','BoardController@add');
+Route::post('board/add','BoardController@create');
+
 
 
 //演習問題
@@ -77,8 +82,8 @@ Route::post('jissyu11/update', 'Jissyu5_2Controller@update');
 Route::get('jissyu11/del', 'Jissyu5_2Controller@del');
 Route::post('jissyu11/remove', 'Jissyu5_2Controller@remove');
 //6-1
-//Route::get('___(1)___', '___(2)___');
-//Route::post('___(3)___', '___(4)___');
+Route::get('jissyu13', 'Jissyu6_1Controller@index');
+Route::post('jissyu13/find', 'Jissyu6_1Controller@find');
 
 
 

@@ -6,12 +6,16 @@ control "Jissyu6_1Controller" as jc
 entity "Person" as p
 boundary "index.blade.php" as ibp
 boundary "show.blade.php" as sbp
-u -> b :該当ページをリクエスト[/jissyu10]
-b -> wp :GET[/jissyu10]
+u -> b :該当ページをリクエスト[/jissyu13]
+b -> wp :GET[/jissyu13]
 wp -> jc :@index
+jc -> p :all()
+jc <-- p
 jc -> ibp
-u -> ibp :選択ボタンを押下
-wp <- ibp :GET[/jissyu10/show]
-wp -> jc :@show
-jc ->sbp
+u -> b :検索ボタンを押下
+b -> wp :GET[/jissyu13/find]
+wp ->jc :@find
+jc -> p :where()->first()
+jc <-- p
+jc -> sbp
 @enduml

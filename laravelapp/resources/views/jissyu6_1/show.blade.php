@@ -10,7 +10,7 @@
    <table>
    <tr><th>Name(Age)</th><th>Mail</th></tr>
        <tr>
-           <td>___(12)___</td>
+           <td>{{$item->getData()}}</td>
            <td>{{$item->mail}}</td>
        </tr>
    </table>
