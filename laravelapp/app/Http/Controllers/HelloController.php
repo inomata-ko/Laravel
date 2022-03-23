@@ -82,4 +82,22 @@ class HelloController extends Controller
         return view('hello.show',['items'=>$items]);
     }
 
+    public function rest(Request $request){
+        return view('hello.rest');
+    }
+
+    public function ses_get(Request $request){ //get
+        $sesdata = $request->session()->get('msg');
+        return view('hello.session',['session_data' => $sesdata]);
+
+    }
+
+    public function ses_put(Request $request){ //post
+        $msg = $request->input;
+        $request->session()->put('msg',$msg);
+        return redirect('hello/session');
+
+    }
+
+
 }
