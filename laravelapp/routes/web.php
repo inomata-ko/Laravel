@@ -17,7 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('hello','HelloController@index');
+Route::get('hello','HelloController@index')
+->middleware('auth');
 Route::post('hello','HelloController@post');
 
 Route::get('hello/add','HelloController@add');
@@ -57,6 +58,8 @@ Route::get('hello/rest','HelloController@rest');
 Route::get('hello/session','HelloController@ses_get');
 Route::post('hello/session','HelloController@ses_put');
 
+Route::get('hello/auth','HelloController@getAuth');
+Route::post('hello/auth','HelloController@postAuth');
 
 
 //演習問題
@@ -110,3 +113,7 @@ Route::get('kouka1_1', 'Kouka1_1Controller@index');
 //kouka1-2
 Route::get('kouka1_2', 'Kouka1_2Controller@index');
 Route::post('kouka1_2', 'Kouka1_2Controller@post');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
