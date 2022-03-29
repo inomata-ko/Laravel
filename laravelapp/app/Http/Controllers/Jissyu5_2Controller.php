@@ -40,8 +40,8 @@ class Jissyu5_2Controller extends Controller
     public function edit(Request $request)
     {
         $param = ['id' => $request->id];
-        $item = DB::select('select * from people where id = :id', $param);
-        return view('jissyu5_2.edit', ['item'=>$item[0]]);
+        $items = DB::select('select * from people where id = :id', $param);
+        return view('jissyu5_2.edit', ['items'=>$items]);
     }
 
     public function update(Request $request)
@@ -60,8 +60,8 @@ class Jissyu5_2Controller extends Controller
     public function del(Request $request)
     {
         $param = ['id' => $request->id];
-        $item = DB::select('select * from people where id = :id', $param);
-        return view('jissyu5_2.del', ['item' => $item[0]]);
+        $items = DB::select('select * from people where id = :id', $param);
+        return view('jissyu5_2.del', ['items' => $items]);
     }
 
     public function remove(Request $request)

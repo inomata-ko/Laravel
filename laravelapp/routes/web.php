@@ -17,6 +17,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//kouka3 課題制作
+// Route::get('money','Money_Controller@index')
+// ->middleware('auth');
+// Route::post('money','Money_Controller@post');
+
+// Route::get('pokepath/add','PokemonPath_Controller@add');
+// Route::post('pokepath/add','PokemonPath_Controller@create');
+
+// Route::get('pokepath/edit','PokemonPath_Controller@edit');
+// Route::post('pokepath/edit','PokemonPath_Controller@update');
+
+// Route::get('pokepath/del','HelloController@del');
+// Route::post('pokepath/del','HelloController@remove');
+
+
+
 Route::get('hello','HelloController@index')
 ->middleware('auth');
 Route::post('hello','HelloController@post');

@@ -1,0 +1,21 @@
+@startuml シーケンス図
+actor "ユーザ" as u
+boundary "ブラウザ" as b
+control "web.php" as wp
+control "Kouka2_1Controller" as kc
+entity "Restdata" as r
+boundary "index.blade.php" as ibp
+boundary "show.blade.php" as sbp
+u -> b :該当ページをリクエスト[/kouka2_1]
+b -> wp :GET[/kouka2_1]
+wp -> kc :@index
+kc -> r :all()
+kc <-- r
+kc -> ibp
+u -> b :検索ボタンを押下
+b -> wp :GET[/kouka2_1/find]
+wp ->kc :@find
+kc -> r :where()->first()
+kc <-- r
+kc -> sbp
+@enduml
