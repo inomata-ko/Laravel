@@ -11,7 +11,7 @@
 
 @section('menubar')
     @parent
-    インデックスページ
+    ページ
 @endsection
 
 @section('content')

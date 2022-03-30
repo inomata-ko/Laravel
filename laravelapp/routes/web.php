@@ -18,12 +18,24 @@ Route::get('/', function () {
 });
 
 //kouka3 課題制作
-// Route::get('money','Money_Controller@index')
-// ->middleware('auth');
-// Route::post('money','Money_Controller@post');
+Route::get('money','MoneyController@index')
+->middleware('auth');
 
-// Route::get('pokepath/add','PokemonPath_Controller@add');
-// Route::post('pokepath/add','PokemonPath_Controller@create');
+Route::get('money/add','MoneyController@add');
+Route::post('money/create','MoneyController@create');
+
+Route::get('money/show','MoneyController@show');
+
+
+// Route::get('jissyu11', 'Jissyu5_2Controller@index');
+// Route::get('jissyu11/show', 'Jissyu5_2Controller@show');
+// Route::get('jissyu11/add', 'Jissyu5_2Controller@add');
+// Route::post('jissyu11/create', 'Jissyu5_2Controller@create');
+// Route::get('jissyu11/edit', 'Jissyu5_2Controller@edit');
+// Route::post('jissyu11/update', 'Jissyu5_2Controller@update');
+// Route::get('jissyu11/del', 'Jissyu5_2Controller@del');
+// Route::post('jissyu11/remove', 'Jissyu5_2Controller@remove');
+
 
 // Route::get('pokepath/edit','PokemonPath_Controller@edit');
 // Route::post('pokepath/edit','PokemonPath_Controller@update');

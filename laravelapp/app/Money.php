@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class Money extends Model
 {
@@ -18,4 +19,10 @@ class Money extends Model
         'investmentPrincipal'=>'numeric',
         'annuaIncome'=>'numeric',
     );
+
+    public function getData(){
+        return $this->id.':'.$this->name.'('.$this->age.')';
+
+    }
+
 }
