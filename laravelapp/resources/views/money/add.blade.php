@@ -8,6 +8,7 @@
 
 @section('content')
    <form action="/money/create" method="post">
+      ※nameとmailはログイン時のものを入力してください。
    <table>
       @csrf
       <tr><th>name: </th><td><input type="text" name="name"></td></tr>

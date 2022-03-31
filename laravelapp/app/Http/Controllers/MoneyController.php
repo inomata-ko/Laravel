@@ -13,14 +13,9 @@ class MoneyController extends Controller
     //
     public function index(Request $request){
         $user = Auth::user();
-        $items = DB::table('money')
-        ->whereRaw('? = name and ? = mail',[$user->name, $user->email])
-        ->get();
+        $param = ['user'=>$user];
 
-        $param = ['items'=> $items,'user'=>$user];
-
-        return view('money.index',$param);
-
+        return view('money.index',$param); 
     }
 
     public function show(Request $request){
@@ -28,14 +23,14 @@ class MoneyController extends Controller
         $items = DB::table('money')
         ->whereRaw('? = name and ? = mail',[$user->name, $user->email])
         ->get();
-
         $param = ['items'=> $items,'user'=>$user];
 
-        return view('money.show',$param);
+        return view('money.show',$param); 
     }
 
+
     public function add(Request $request){
-        return view('money.input');
+        return view('money.add');
     }
 
     public function create(Request $request){
@@ -53,22 +48,26 @@ class MoneyController extends Controller
     }
 
     public function edit(Request $request){
-        $item = DB::table('people')
-        ->where('id',$request->id)
-        ->first();
-        return view('hello.edit',['form'=>$item]);
+        $user = Auth::user();
+        $items = DB::table('money')
+        ->whereRaw('? = name and ? = mail',[$user->name, $user->email])
+        ->get();
+        return view('money.edit',['items'=>$items,'user'=>$user]);
     }
 
     public function update(Request $request){
-        $param=[
+        $user = Auth::user();
+        $param =[
             'name' => $request->name,
             'mail' => $request->mail,
             'age' => $request->age,
+            'totalAssets' => $request->totalAssets,
+            'investmentPrincipal' => $request->investmentPrincipal,
+            'annuaIncome' => $request->annuaIncome,
         ];
-        DB::table('people')
-        ->where('id',$request->id)
+        DB::table('money')
+        ->whereRaw('? = name and ? = mail',[$user->name, $user->email])
         ->update($param);
-        return redirect('/hello');
+        return redirect('/money');
     }
-
 }

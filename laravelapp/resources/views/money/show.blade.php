@@ -7,11 +7,11 @@
     tr th a:hover {color:white;}
     tr th a:active {color:white;}
 </style>
-@section('title','Index')
+@section('title','Show')
 
 @section('menubar')
     @parent
-    ページ
+    閲覧ページ
 @endsection
 
 @section('content')
@@ -27,7 +27,8 @@
         <tr><th>年収</th><td>{{$item->annuaIncome}}万円</td></tr>
         @endforeach
     </table>
-    <td><a href="/money/edit">更新</a></td>
+    <a href="/money/edit">更新</a>|
+    <a href="/money/add">未入力の場合はこちら</a>
 
     @else
     <p>※ログインしていません。(<a href="/login">ログイン</a>|

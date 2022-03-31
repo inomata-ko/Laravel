@@ -20,11 +20,13 @@ Route::get('/', function () {
 //kouka3 課題制作
 Route::get('money','MoneyController@index')
 ->middleware('auth');
+Route::get('money/show','MoneyController@show');
 
 Route::get('money/add','MoneyController@add');
 Route::post('money/create','MoneyController@create');
 
-Route::get('money/show','MoneyController@show');
+Route::get('money/edit','MoneyController@edit');
+Route::post('money/update','MoneyController@update');
 
 
 // Route::get('jissyu11', 'Jissyu5_2Controller@index');
